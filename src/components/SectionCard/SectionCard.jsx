@@ -2,9 +2,9 @@ import React from 'react'
 import './SectionCard.css';
 import { FaUsers } from 'react-icons/fa'; // Importing the icon for accounts
 
-const SectionCard = ({ title, image }) => {
+const SectionCard = ({ title, image, onClick }) => {
   return (
-    <div className="section-card">
+    <div className="section-card" onClick={onClick} role="button" tabIndex={0} >
       <div className="section-card-image">
         <img src={image} alt={title} />
       </div>

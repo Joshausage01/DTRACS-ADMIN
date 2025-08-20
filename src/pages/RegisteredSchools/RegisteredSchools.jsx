@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SGOD = () => {
+const RegisteredSchools = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const SGOD = () => {
   )
 }
 
-export default SGOD
+export default RegisteredSchools;

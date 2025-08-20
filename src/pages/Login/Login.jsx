@@ -14,7 +14,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/home"); // Redirect to home after login
+    navigate("/sections"); // Redirect to sections after login
   };
 
   const togglePasswordVisibility = () => {

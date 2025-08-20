@@ -4,11 +4,8 @@ import { MdTab } from "react-icons/md";
 import { RiSchoolFill } from "react-icons/ri";
 import { BiSolidUserAccount } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
-import { useSidebar } from "../../context/SidebarContext";
 
 const SchoolSidebar = ({ isExpanded }) => {
-  const { isExpanded: expanded} = useSidebar();
-
   return (
     <aside className={`sidebar ${isExpanded ? "expanded" : ""}`}>
       <nav className="sidebar-nav">
@@ -16,11 +13,11 @@ const SchoolSidebar = ({ isExpanded }) => {
           {/* Home */}
           <li>
             <NavLink
-              to="/home"
+              to="/sections"
               className={({ isActive }) =>
                 `sidebar-link ${isActive ? "active" : ""}`
               }
-              end
+              end={false} // Ensure this link is not treated as active when on the root path
             >
               <MdTab className="sidebar-icon" />
               {isExpanded && <span className="sidebar-text">Sections</span>}
@@ -30,7 +27,7 @@ const SchoolSidebar = ({ isExpanded }) => {
           {/* To-do */}
           <li>
             <NavLink
-              to="/todo"
+              to="/registered-schools"
               className={({ isActive }) =>
                 `sidebar-link ${isActive ? "active" : ""}`
               }
@@ -43,7 +40,7 @@ const SchoolSidebar = ({ isExpanded }) => {
           {/* Manage Account */}
           <li>
             <NavLink
-              to="/manage-account"
+              to="/account-control"
               className={({ isActive }) =>
                 `sidebar-link ${isActive ? "active" : ""}`
               }

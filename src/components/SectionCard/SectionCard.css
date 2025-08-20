@@ -1,5 +1,5 @@
 .section-card {
-  width: 240px;
+  width: 260px;
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -11,6 +11,7 @@
 
 .section-card:hover {
   transform: translateY(-5px);
+  cursor: pointer;
 }
 
 /* Top image placeholder */
@@ -41,8 +42,9 @@
 .section-card-body h3 {
   font-size: 1rem;
   color: #fff;
-  font-weight: 600;
+  font-weight: 450;
   margin-bottom: 8px;
+  font-family: "Source Sans 3-SemiBold", Helvetica;
 }
 
 .section-card-footer {

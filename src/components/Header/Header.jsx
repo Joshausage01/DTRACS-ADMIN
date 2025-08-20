@@ -12,7 +12,7 @@ const Header = ({ toggleSidebar }) => {
   const dropdownRef = useRef(null);
 
   const handleLogoClick = () => {
-    navigate("/home"); // Navigates to startup page
+    navigate("/sections"); // Navigates to startup page
   };
 
   const toggleDropdown = () => {
