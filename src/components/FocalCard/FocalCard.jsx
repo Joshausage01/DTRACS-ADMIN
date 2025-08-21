@@ -1,14 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import "./FocalCard.css";
 import { FaUserCircle } from "react-icons/fa";
 
+
 const COLORS = ["#4CAF50", "#E53935", "#1E88E5"]; 
 // green = complete, red = incomplete, blue = pending
 
-const FocalCard = ({ section, name, role, stats, projects }) => {
+const FocalCard = ({ section, name, role, stats, projects, sectionId, id}) => {
+  const navigate = useNavigate();
+
+  const handleClick = () =>{
+    navigate(`/sections/${sectionId}/focals/${id}`) // the route needs to be edited to match the actual path
+  };
+
   return (
-    <div className="focal-card">
+    <div className="focal-card" onClick={handleClick}>
       {/* Header */}
       <div className="focal-header">
         <FaUserCircle className="focal-avatar" />

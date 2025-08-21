@@ -7,14 +7,9 @@ import AccountControl from "./pages/AccountControl/AccountControl";
 import Dashboard from "./pages/Dashboard/Dashboard";
 
 // Section imports
-import YouthFormationPage from "./pages/Sections/YouthFormationPage/YouthFormationPage";
-import SocialAndNetworkingPage from "./pages/Sections/SocialAndNetworkingPage/SocialAndNetworking";
-import EducationFacilitiesPage from "./pages/Sections/EducationFacilitiesPage/EducationFacilitiesPage";
-import DisasterRiskPage from "./pages/Sections/DRRMPage/DRRMPage";
-import SchoolHealthPage from "./pages/Sections/SchoolHealthPage/SchoolHealthPage";
-import SchoolManagementPage from "./pages/Sections/SchoolManagementPage/SchoolManagementPage";
-import PlanningResearchPage from "./pages/Sections/PlanningResearchPage/PlanningResearchPage";
-import HumanResourcePage from "./pages/Sections/HumanResourcePage/HumanResourcePage";
+import SectionPage from "./pages/Sections/SectionPage";
+import FocalPage from "./pages/Focals/FocalPage";
+
 
 function App() {
   const location = useLocation();
@@ -32,15 +27,9 @@ function App() {
         {/* Section Dashboard */}
         <Route path="/sections" element={<Dashboard />} />
 
-        {/* Section routes all under /sections/... */}
-        <Route path="/sections/school-management" element={<SchoolManagementPage />} />
-        <Route path="/sections/planning-research" element={<PlanningResearchPage />} />
-        <Route path="/sections/hr" element={<HumanResourcePage />} />
-        <Route path="/sections/social-mobilization" element={<SocialAndNetworkingPage />} />
-        <Route path="/sections/educ-facilities" element={<EducationFacilitiesPage />} />
-        <Route path="/sections/disaster-risk" element={<DisasterRiskPage />} />
-        <Route path="/sections/health" element={<SchoolHealthPage />} />
-        <Route path="/sections/youth-formation" element={<YouthFormationPage />} />
+        {/* Section and Focal routes */}
+        <Route path="/sections/:sectionId" element={<SectionPage />} />
+        <Route path="/sections/:sectionId/focals/:focalId" element={<FocalPage />} />
 
         {/* Other non-section routes */}
         <Route path="/registered-schools" element={<RegisteredSchool />} />
