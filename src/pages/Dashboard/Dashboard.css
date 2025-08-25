@@ -4,9 +4,9 @@
 
 .section-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 👈 keeps cards consistent */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 👈 keeps cards consistent */
   gap: 32px;                /* more breathing room between cards */
   justify-items: center;     /* center cards inside grid cells */
-  margin: 20px 10px;         /* top-bottom margin & centered */
+  margin: 20px 20px;         /* top-bottom margin & centered */
   max-width: 1400px;         /* optional: prevent cards from stretching too wide */
 }

@@ -4,21 +4,18 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import "./FocalCard.css";
 import { FaUserCircle } from "react-icons/fa";
 
-
 const COLORS = ["#4CAF50", "#E53935", "#1E88E5"]; 
-// green = complete, red = incomplete, blue = pending
 
-const FocalCard = ({ section, name, role, stats, projects, sectionId, id}) => {
+const FocalCard = ({ section, name, role, stats, documents, sectionId, id}) => {
   const navigate = useNavigate();
 
-  const handleClick = () =>{
-    navigate(`/sections/${sectionId}/focals/${id}`) // the route needs to be edited to match the actual path
-  };
-
   return (
-    <div className="focal-card" onClick={handleClick}>
-      {/* Header */}
-      <div className="focal-header">
+    <div className="focal-card">
+      {/* Header → whole header is clickable */}
+      <div 
+        className="focal-header" 
+        onClick={() => navigate(`/sections/${sectionId}/focals/${id}`)}
+      >
         <FaUserCircle className="focal-avatar" />
         <div>
           <h3>{section}</h3>
@@ -34,7 +31,7 @@ const FocalCard = ({ section, name, role, stats, projects, sectionId, id}) => {
           <ResponsiveContainer width={180} height={180}>
             <PieChart>
               <Pie
-                data={stats}    // ← (Frontend static for now) | (Backend: replace with fetched stats)
+                data={stats}
                 cx="50%"
                 cy="50%"
                 innerRadius={40}
@@ -53,26 +50,30 @@ const FocalCard = ({ section, name, role, stats, projects, sectionId, id}) => {
           {/* Legend */}
           <div className="focal-legend">
             <span><span className="legend-box complete"></span>Complete</span>
-            <span><span className="legend-box incomplete"></span>Past Due</span>
+            <span><span className="legend-box past-due"></span>Past Due</span>
             <span><span className="legend-box pending"></span>Pending</span>
           </div>
         </div>
 
-        {/* Project List */}
-        <div className="focal-projects">
-          {projects.map((proj, idx) => (
-            <div key={idx} className="focal-project">
-              <div className="project-title">{proj.name}</div>
+        {/* Document List */}
+        <div className="focal-documents">
+          {documents.map((doc, idx) => (
+            <button 
+              key={idx} 
+              className="focal-document"
+              onClick={() => navigate(`/sections/${sectionId}/focals/${id}/documents/${idx}`)}
+            >
+              <div className="subject-title">{doc.title}</div>
               <div className="progress-wrapper">
-                <div className="progress-bar">
+                <div className="progress-bar">  
                   <div
                     className="progress-fill"
-                    style={{ width: `${proj.progress}%` }}
-                  ></div>
+                    style={{ width: `${doc.progress}%` }}
+                  ></div>   
                 </div>
-                <span className="progress-value">{proj.progress}%</span>
+                <span className="progress-value">{doc.progress}%</span>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>

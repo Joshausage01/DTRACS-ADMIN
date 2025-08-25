@@ -6,9 +6,10 @@ import RegisteredSchool from "./pages/RegisteredSchools/RegisteredSchools";
 import AccountControl from "./pages/AccountControl/AccountControl";
 import Dashboard from "./pages/Dashboard/Dashboard";
 
-// Section imports
+// Page imports
 import SectionPage from "./pages/Sections/SectionPage";
 import FocalPage from "./pages/Focals/FocalPage";
+import TaskDetailPage from "./pages/TaskDetailPage/TaskDetailPage";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         {/* Section and Focal routes */}
         <Route path="/sections/:sectionId" element={<SectionPage />} />
         <Route path="/sections/:sectionId/focals/:focalId" element={<FocalPage />} />
+        <Route path="/sections/:sectionId/focals/:focalId/documents/:idx" element={<TaskDetailPage />} />
 
         {/* Other non-section routes */}
         <Route path="/registered-schools" element={<RegisteredSchool />} />

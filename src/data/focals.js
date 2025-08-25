@@ -1,4 +1,15 @@
+// src/data/focals.js
 import { idFromName } from "../utils/idGenerator";
+
+// Mock tasks (single source of truth)
+export const mockTasks = [
+  { id: 1, title: "Project Proposal", status: "ongoing", date: "2025-08-05", postedAt: "Posted at 3:30 PM", dueDate: "Due August 6", progress: 64 },
+  { id: 2, title: "System Design", status: "ongoing", date: "2025-08-05", postedAt: "Posted at 1:00 PM", dueDate: "Due August 7", progress: 46 },
+  { id: 3, title: "Testing Report", status: "ongoing", date: "2025-08-05", postedAt: "Posted at 4:00 PM", dueDate: "Due August 8", progress: 77 },
+  { id: 4, title: "Budget Proposal", status: "pastdue", date: "2025-08-04", postedAt: "Posted at 2:30 PM", dueDate: "Due August 6", progress: 84 },
+  { id: 5, title: "Final Documentation", status: "pastdue", date: "2025-08-04", postedAt: "Posted at 5:00 PM", dueDate: "Due August 6", progress: 72 },
+  { id: 6, title: "Initial Draft", status: "history", date: "2025-08-03", postedAt: "Posted at 11:30 AM", dueDate: "Due August 6", progress: 90 },
+];
 
 export const sectionData = {
   "school-management": [
@@ -12,13 +23,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
   ],
 
@@ -33,13 +38,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
     {
       id: idFromName("Charles M. Patio"),
@@ -51,13 +50,7 @@ export const sectionData = {
         { name: "Incomplete", value: 40 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 37 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 76 },
-        { name: "Project Proposal 4", progress: 68 },
-        { name: "Project Proposal 5", progress: 54 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
   ],
 
@@ -72,13 +65,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
     {
       id: idFromName("Mary Joy L. Cabiles"),
@@ -90,13 +77,7 @@ export const sectionData = {
         { name: "Incomplete", value: 40 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 37 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 76 },
-        { name: "Project Proposal 4", progress: 68 },
-        { name: "Project Proposal 5", progress: 54 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
   ],
 
@@ -111,13 +92,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
     {
       id: idFromName("Eva Joyce V. Cabantog"),
@@ -129,13 +104,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
   ],
 
@@ -150,13 +119,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
   ],
 
@@ -171,13 +134,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
   ],
 
@@ -192,13 +149,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
     {
       section: "Medical",
@@ -209,13 +160,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
     {
       section: "SBFP",
@@ -226,13 +171,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
     {
       section: "GPP",
@@ -243,13 +182,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
     {
       section: "WINS",
@@ -260,13 +193,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
     {
       section: "NDEP",
@@ -277,13 +204,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
     {
       section: "RH",
@@ -294,13 +215,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
   ],
 
@@ -315,13 +230,7 @@ export const sectionData = {
         { name: "Incomplete", value: 23 },
         { name: "Pending", value: 20 },
       ],
-      projects: [
-        { name: "Project Proposal 1", progress: 64 },
-        { name: "Project Proposal 2", progress: 46 },
-        { name: "Project Proposal 3", progress: 77 },
-        { name: "Project Proposal 4", progress: 84 },
-        { name: "Project Proposal 5", progress: 72 },
-      ],
+      documents: mockTasks, // direct reference, no redundancy
     },
   ],
 }
