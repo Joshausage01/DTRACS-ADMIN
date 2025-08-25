@@ -1,0 +1,67 @@
+/* Top bar container */
+.task-tabs-container {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border-bottom: 2px solid #eee;
+  padding: 8px 20px;
+  background: #fff;
+}
+
+/* Left side: the tabs */
+.task-tabs {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem; /* space between tabs */
+}
+
+/* Each tab button */
+.task-tabs button {
+  background: none;
+  border: none;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  position: relative;  /* needed for dot positioning */
+  border-bottom: 3px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.task-tabs button:hover {
+  color: #1e3a8a;
+}
+
+/* Active state: just change the color of the already-reserved underline */
+.task-tabs button.active {
+  color: #1e3a8a;
+  border-bottom-color: #1e3a8a;   /* underline shows without moving layout */
+}
+
+/* status dots as notification badges */
+.task-tabs .dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;     /* adjust distance above text */
+  right: -10px; /* pushes it to the right edge of text */
+}
+
+.task-tabs .dot.green { background-color: #10b981; }
+.task-tabs .dot.red   { background-color: #ef4444; }
+
+/* Right side: the sort control */
+.task-sort {
+  margin-left: auto;              /* pushes it to the right */
+}
+
+.task-sort select {
+  padding: 6px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 14px;
+  color: #111827;
+}

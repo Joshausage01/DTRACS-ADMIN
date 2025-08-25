@@ -2,10 +2,15 @@ import React from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
-import Todo from "./pages/Todo/Todo";
-import ManageAccount from "./pages/ManageAccount/ManageAccount";
-import SGOD from "./pages/SGOD/SGOD";
+import RegisteredSchool from "./pages/RegisteredSchools/RegisteredSchools";
+import AccountControl from "./pages/AccountControl/AccountControl";
 import Dashboard from "./pages/Dashboard/Dashboard";
+
+// Page imports
+import SectionPage from "./pages/Sections/SectionPage";
+import FocalPage from "./pages/Focals/FocalPage";
+import TaskDetailPage from "./pages/TaskDetailPage/TaskDetailPage";
+
 
 function App() {
   const location = useLocation();
@@ -20,10 +25,17 @@ function App() {
 
       {/* Home Layout with nested routes */}
       <Route element={<Home />}>
-        <Route path="/home" element={<Dashboard />} />
-        <Route path="/todo" element={<Todo />} />
-        <Route path="/SGOD" element={<SGOD />} />
-        <Route path="/manage-account" element={<ManageAccount />} />
+        {/* Section Dashboard */}
+        <Route path="/sections" element={<Dashboard />} />
+
+        {/* Section and Focal routes */}
+        <Route path="/sections/:sectionId" element={<SectionPage />} />
+        <Route path="/sections/:sectionId/focals/:focalId" element={<FocalPage />} />
+        <Route path="/sections/:sectionId/focals/:focalId/documents/:idx" element={<TaskDetailPage />} />
+
+        {/* Other non-section routes */}
+        <Route path="/registered-schools" element={<RegisteredSchool />} />
+        <Route path="/account-control" element={<AccountControl />} />
       </Route>
     </Routes>
   );

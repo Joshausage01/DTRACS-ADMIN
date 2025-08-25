@@ -1,16 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import SectionCard from "../../components/SectionCard/SectionCard"; // adjust path if needed
-import NoImage from "../../assets/images/no-image.jpg"; // adjust path if needed
+import { sections } from "../../data/sections"; // assuming you have a sections data file
 
 const Dashboard = () => {
-  const sections = [
-    { title: "School Management Monitoring and Evaluation Section", image: NoImage },
-    { title: "Planning and Research", image: NoImage },
-    { title: "Human Resource Development Section", image: NoImage },
-    { title: "School Health Section", image: NoImage },
-    { title: "Education Facilities Section", image: NoImage },
-  ];
+  const navigate = useNavigate();
 
   return (
     <div className="section-container">
@@ -19,6 +14,7 @@ const Dashboard = () => {
           key={index}
           title={section.title}   // ✅ use string
           image={section.image}   // ✅ use string path
+          onClick={() => navigate(`/sections/${section.id}`)} // Navigate to the section path
         />
       ))}
     </div>
