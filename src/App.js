@@ -31,7 +31,7 @@ function App() {
         {/* Section and Focal routes */}
         <Route path="/sections/:sectionId" element={<SectionPage />} />
         <Route path="/sections/:sectionId/focals/:focalId" element={<FocalPage />} />
-        <Route path="/sections/:sectionId/focals/:focalId/documents/:idx" element={<TaskDetailPage />} />
+        <Route path="/sections/:sectionId/focals/:focalId/documents/:taskId" element={<TaskDetailPage />} />
 
         {/* Other non-section routes */}
         <Route path="/registered-schools" element={<RegisteredSchool />} />

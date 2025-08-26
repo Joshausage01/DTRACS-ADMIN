@@ -3,13 +3,16 @@ import { idFromName } from "../utils/idGenerator";
 
 // Mock tasks (single source of truth)
 export const mockTasks = [
-  { id: 1, title: "Project Proposal", status: "ongoing", date: "2025-08-05", postedAt: "Posted at 3:30 PM", dueDate: "Due August 6", progress: 64 },
-  { id: 2, title: "System Design", status: "ongoing", date: "2025-08-05", postedAt: "Posted at 1:00 PM", dueDate: "Due August 7", progress: 46 },
-  { id: 3, title: "Testing Report", status: "ongoing", date: "2025-08-05", postedAt: "Posted at 4:00 PM", dueDate: "Due August 8", progress: 77 },
-  { id: 4, title: "Budget Proposal", status: "pastdue", date: "2025-08-04", postedAt: "Posted at 2:30 PM", dueDate: "Due August 6", progress: 84 },
-  { id: 5, title: "Final Documentation", status: "pastdue", date: "2025-08-04", postedAt: "Posted at 5:00 PM", dueDate: "Due August 6", progress: 72 },
-  { id: 6, title: "Initial Draft", status: "history", date: "2025-08-03", postedAt: "Posted at 11:30 AM", dueDate: "Due August 6", progress: 90 },
+  { id: 1, title: "Project Proposal", status: "ongoing", postDate: "2025-08-05", postedTime: "3:30 PM", dueDate: "Due August 6, 2025", dueTime: "11:59 PM", progress: 64 },
+  { id: 2, title: "System Design", status: "ongoing", postDate: "2025-08-05", postedTime: "1:00 PM", dueDate: "Due August 7, 2025", dueTime: "11:59 PM", progress: 46 },
+  { id: 3, title: "Testing Report", status: "ongoing", postDate: "2025-08-05", postedTime: "4:00 PM", dueDate: "Due August 8, 2025", dueTime: "11:59 PM", progress: 77 },
+  { id: 4, title: "Budget Proposal", status: "pastdue", postDate: "2025-08-04", postedTime: "2:30 PM", dueDate: "Due August 6, 2025", dueTime: "11:59 PM", progress: 84 },
+  { id: 5, title: "Final Documentation", status: "pastdue", postDate: "2025-08-04", postedTime: "5:00 PM", dueDate: "Due August 6, 2025", dueTime: "11:59 PM", progress: 72 },
+  { id: 6, title: "Initial Draft", status: "history", postDate: "2025-08-03", postedTime: "11:30 AM", dueDate: "Due August 6, 2025", dueTime: "11:59 PM", progress: 90 },
+  { id: 7, title: "Research Paper", status: "ongoing", postDate: "2025-08-03", postedTime: "9:00 AM", dueDate: "Due August 6, 2025", dueTime: "11:59 PM", progress: 100 },
 ];
+
+export const mockDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
 export const sectionData = {
   "school-management": [
@@ -24,6 +27,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
   ],
 
@@ -39,6 +43,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
     {
       id: idFromName("Charles M. Patio"),
@@ -51,6 +56,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
   ],
 
@@ -66,6 +72,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
     {
       id: idFromName("Mary Joy L. Cabiles"),
@@ -78,6 +85,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
   ],
 
@@ -93,6 +101,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
     {
       id: idFromName("Eva Joyce V. Cabantog"),
@@ -105,6 +114,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
   ],
 
@@ -120,6 +130,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
   ],
 
@@ -135,6 +146,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
   ],
 
@@ -150,6 +162,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
     {
       section: "Medical",
@@ -161,6 +174,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
     {
       section: "SBFP",
@@ -172,6 +186,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
     {
       section: "GPP",
@@ -183,6 +198,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
     {
       section: "WINS",
@@ -194,6 +210,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
     {
       section: "NDEP",
@@ -205,6 +222,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
     {
       section: "RH",
@@ -216,6 +234,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
   ],
 
@@ -231,6 +250,7 @@ export const sectionData = {
         { name: "Pending", value: 20 },
       ],
       documents: mockTasks, // direct reference, no redundancy
+      description: mockDescription, // Example description
     },
   ],
 }

@@ -6,7 +6,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 const COLORS = ["#4CAF50", "#E53935", "#1E88E5"]; 
 
-const FocalCard = ({ section, name, role, stats, documents, sectionId, id}) => {
+const FocalCard = ({ section, name, role, stats, documents, sectionId, taskId, id}) => {
   const navigate = useNavigate();
 
   return (
@@ -61,7 +61,7 @@ const FocalCard = ({ section, name, role, stats, documents, sectionId, id}) => {
             <button 
               key={idx} 
               className="focal-document"
-              onClick={() => navigate(`/sections/${sectionId}/focals/${id}/documents/${idx}`)}
+              onClick={() => navigate(`/sections/${sectionId}/focals/${id}/documents/${taskId || doc.id}`)}
             >
               <div className="subject-title">{doc.title}</div>
               <div className="progress-wrapper">

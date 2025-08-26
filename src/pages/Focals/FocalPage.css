@@ -93,3 +93,22 @@
   color: #6b7280;
   margin-left: auto;
 }
+
+/* Past due = red */
+.task-due.pastdue {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* History = green, show “Completed” */
+.task-due.history {
+  display: inline-flex;      /* aligns icon + text */
+  align-items: center;
+  gap: 4px;                  /* space between check and text */
+  color: #16a34a;            /* green text */
+  font-weight: 600;
+  background-color: #d1fae5; /* soft green bg */
+  padding: 3px 10px;          /* badge padding */
+  border-radius: 8px;       /* pill shape */
+  font-size: 12px;
+}
