@@ -3,7 +3,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { sectionData } from "../../data/focals";
 import TaskDescription from "../../components/TaskDetailComponents/TaskDescription";
+import SchoolStats from "../../components/TaskDetailComponents/SchoolStats";
 import "./TaskDetailPage.css";
+import TaskViewComment from "../../components/TaskDetailComponents/TaskViewComment";
 
 const TaskDetailPage = () => {
   const { sectionId, focalId, taskId,  } = useParams();
@@ -29,7 +31,6 @@ const TaskDetailPage = () => {
   // 4. Grab description directly from focal
   const focalDescription = focal.description;
 
-  console.log("Params:", { taskId, sectionId, focalId });
   return (
     <div className="task-detail-page">
       {/* Left side: Task Description */}
@@ -41,11 +42,13 @@ const TaskDetailPage = () => {
           description={focalDescription}
           status={task.status}
         />
+
+        <TaskViewComment />
       </div>
 
       {/* Right side: Reserved for future (comments/stats) */}
       <div className="task-detail-right">
-        <p>Statistics / Comments will go here</p>
+        <SchoolStats />
       </div>
     </div>
   );

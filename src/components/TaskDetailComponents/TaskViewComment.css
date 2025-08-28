@@ -1,0 +1,38 @@
+.comments-section {
+  margin-top: 50px;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  gap: 12px;
+}
+
+.comment-card {
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+.comment-header {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #000000;
+}
+
+.comment-header .author {
+  font-weight: bold;
+}
+
+.comment-header .date {
+  margin-left: 8px;
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.comment-text {
+  margin-top: 12px;
+  font-size: 16px;
+}

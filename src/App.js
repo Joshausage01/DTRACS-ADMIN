@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
-import RegisteredSchool from "./pages/RegisteredSchools/RegisteredSchools";
+import RegisteredSchools from "./pages/RegisteredSchools/RegisteredSchools";
 import AccountControl from "./pages/AccountControl/AccountControl";
 import Dashboard from "./pages/Dashboard/Dashboard";
 
@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import SectionPage from "./pages/Sections/SectionPage";
 import FocalPage from "./pages/Focals/FocalPage";
 import TaskDetailPage from "./pages/TaskDetailPage/TaskDetailPage";
+import SchoolAccDisplay from "./pages/RegisteredSchools/SchoolAccDisplay/SchoolAccDisplay";
 
 
 function App() {
@@ -33,8 +34,11 @@ function App() {
         <Route path="/sections/:sectionId/focals/:focalId" element={<FocalPage />} />
         <Route path="/sections/:sectionId/focals/:focalId/documents/:taskId" element={<TaskDetailPage />} />
 
-        {/* Other non-section routes */}
-        <Route path="/registered-schools" element={<RegisteredSchool />} />
+        {/* Registered School routes */}
+        <Route path="/registered-schools" element={<RegisteredSchools />} />
+        <Route path="/registered-schools/:schoolSlug" element={<SchoolAccDisplay />} />
+
+
         <Route path="/account-control" element={<AccountControl />} />
       </Route>
     </Routes>

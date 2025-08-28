@@ -31,12 +31,18 @@
 }
 
 .date-header {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: #1f2937;
   margin-bottom: 8px;
   border-bottom: 1px solid #e5e7eb;
   padding-bottom: 4px;
+}
+
+.day-of-week {
+  margin-left: 5px;
+  font-weight: 500;
+  color: #6b7280;
 }
 
 /* Task list */

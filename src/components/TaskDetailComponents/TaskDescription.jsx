@@ -37,7 +37,7 @@ const TaskDescription = ({ task, focalName, section, description, status }) => {
     <div className="task-description">
       {/* Back button */}
       <button className="back-btn" onClick={handleClick}>
-        <IoIosArrowBack size={26} />
+        <IoIosArrowBack size={24} />
         <span>Back</span>
       </button>
 
@@ -58,7 +58,7 @@ const TaskDescription = ({ task, focalName, section, description, status }) => {
       {/* Author + Posted Date */}
       <div className="task-meta">
         <span className="author">{focalName}</span>
-        <span className="dot-space"> • </span>
+        <span className="dot-space">•</span>
         <span className="posted">Posted on {formattedPostDate}</span>
       </div>
 

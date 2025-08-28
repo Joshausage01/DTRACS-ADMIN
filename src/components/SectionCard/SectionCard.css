@@ -7,25 +7,32 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease;
+  border: 1px solid #b7b6b6;
 }
 
 .section-card:hover {
   transform: translateY(-5px);
   cursor: pointer;
+  box-shadow: 
+    0 12px 24px rgba(79, 96, 235, 0.15),
+    0 4px 8px rgba(79, 96, 235, 0.1);
 }
 
-/* Top image placeholder */
+/* Top image */
 .section-card-image {
   height: 125px;
   background: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .section-card-image img {
-  max-width: 80px;
-  opacity: 0.6;
+  width: 100%;   /* fills full card width */
+  height: 100%;  /* fills full container height */
+  object-fit: cover; /* crops to fill without distortion */
+  display: block;;
 }
 
 /* Bottom blue section */
