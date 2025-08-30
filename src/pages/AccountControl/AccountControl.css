@@ -1,0 +1,140 @@
+/* Base row (all tabs use grid) */
+.account-item {
+   display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+/* Designation adds a middle column */
+.account-item.designation {
+  grid-template-columns: minmax(200px, 35%) 1fr auto;
+}
+
+/* Filter */
+.account-filter {
+  margin: 16px 0;       /* space above and below filter */
+}
+
+/* List spacing */
+.account-list {
+  margin-top: 16px;     /* space between filter and accounts */
+}
+
+/* Left group */
+.account-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.account-avatar {
+  width: 36px;
+  height: 36px;
+  background: #203061;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+
+.account-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.account-name {
+  font-weight: 600;
+  margin: 0;
+}
+
+.account-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+/* Middle column (designation only) */
+.account-section {
+  font-size: 0.92rem;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-self: center;
+}
+
+.account-action button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Verification + Designation buttons (blue) */
+.inspect-btn,
+.edit-btn {
+  border: 1.5px solid #203061;
+  color: #203061;
+}
+
+.inspect-btn:hover,
+.edit-btn:hover {
+  background: #203061;
+  color: white;
+}
+
+/* Termination button (red) */
+.delete-btn {
+  border: 1.5px solid #d9534f;
+  color: #d9534f;
+}
+
+.delete-btn:hover {
+  background: #d9534f;
+  color: white;
+}
+
+/* Right column */
+.account-action {
+  justify-self: end;
+}
+
+/* Filter container */
+.account-filter {
+  margin-top: 12px;       /* spacing below tabs */
+  margin-bottom: 16px;    /* spacing before list */
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Minimal dropdown */
+.account-filter select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;   /* light grey border */
+  border-radius: 4px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+/* On hover/focus: subtle accent */
+.account-filter select:hover,
+.account-filter select:focus {
+  border-color: #203061;   /* just a thin accent border */
+}

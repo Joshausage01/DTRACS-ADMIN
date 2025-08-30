@@ -42,6 +42,29 @@ import avatarImg1 from '../assets/images/Start-Up.png';
 import { createSlug } from "../utils/idGenerator";
 
 
+export const mockComments = [
+  {
+    id: 1,
+    author: "Juan Dela Cruz",
+    role: "BINHS",
+    date: "Aug 28, 2025 9:37 AM",
+    text: "We will submit the document tomorrow."
+  },
+  {
+    id: 2,
+    author: "Maria Santos",
+    role: "SV5A",
+    date: "Aug 27, 2025 3:10 PM",
+    text: "We’re preparing the documents."
+  },
+  {
+    id: 3,
+    author: "Edward R. Manuel",
+    role: "Planning & Research",
+    date: "Aug 27, 2025 2:15 PM",
+    text: "Reminder: submission deadline is Aug 30."
+  }
+];
 
 
 export const rawSchoolAccounts = [
@@ -569,8 +592,18 @@ export const rawSchoolAccounts = [
   {
     name: "Southville 5 Elementary School",
     schoolAddress: "B25, L2 Timbao, Biñan City, Laguna, 4024",
-    accounts: 0,
     logo: S5ES,
+    accounts: [
+      {
+        id: 1,
+        avatar: avatarImg1,
+        firstName: "Juan",
+        middleName: "Ponce",
+        lastName: "Dela Cruz",
+        email: "juandelacruz@gmail.com",
+        position: "Principal",
+      },
+    ],
   },
   {
     name: "Southville 5A Elementary School",

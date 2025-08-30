@@ -1,30 +1,7 @@
 // TaskViewComment.jsx
 import React, { useState } from "react";
 import "./TaskViewComment.css"
-
-const mockComments = [
-  {
-    id: 1,
-    author: "Juan Dela Cruz",
-    role: "BINHS",
-    date: "Aug 28, 2025 9:37 AM",
-    text: "We will submit the document tomorrow."
-  },
-  {
-    id: 2,
-    author: "Maria Santos",
-    role: "SV5A",
-    date: "Aug 27, 2025 3:10 PM",
-    text: "We’re preparing the documents."
-  },
-  {
-    id: 3,
-    author: "Edward R. Manuel",
-    role: "Planning & Research",
-    date: "Aug 27, 2025 2:15 PM",
-    text: "Reminder: submission deadline is Aug 30."
-  }
-];
+import { mockComments, schoolAccounts } from "../../data/SchoolAccounts";
 
 const TaskViewComment = () => {
   const [ comments ] = useState(mockComments);
