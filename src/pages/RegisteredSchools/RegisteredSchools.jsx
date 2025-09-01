@@ -32,7 +32,7 @@ const RegisteredSchools = () => {
             </div>
 
             {/* Clickable Account Count → Links to specific school's accounts */}
-            <Link to={`/registered-schools/${school.slug}`} className="account-count-link" style={{ textDecoration: 'none' }}>
+            <Link to={`/registered-schools/${school.slug}`} className="account-count-link">
               <div className="account-count">
                 <FaRegUser className="account-image" />
                 <span>{school.accounts?.length || 0} Accounts</span>

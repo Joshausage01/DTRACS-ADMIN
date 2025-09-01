@@ -1,27 +1,35 @@
 /* Base row (all tabs use grid) */
 .account-item {
-   display: grid;
+  display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 20px;
-  padding: 12px 16px;
+  padding: 20px 16px;
   border-bottom: 1px solid #e5e7eb;
   background: #fff;
+  margin: 0 20px;
 }
 
-/* Designation adds a middle column */
+/* Fix for designation tab to use full row */
 .account-item.designation {
-  grid-template-columns: minmax(200px, 35%) 1fr auto;
+  display: block; /* Override grid for designation */
+  padding: 0; /* Remove padding since designation-row has its own */
+  border-bottom: none; /* Remove border since designation-row has its own */
+  margin: 0 20px;
+  background: transparent;
 }
 
-/* Filter */
-.account-filter {
-  margin: 16px 0;       /* space above and below filter */
-}
-
-/* List spacing */
-.account-list {
-  margin-top: 16px;     /* space between filter and accounts */
+/* Designation-specific row layout - FIXED to use full width */
+.designation-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;  /* name | section | edit */
+  align-items: center;
+  gap: 16px;
+  padding: 20px 16px;                  /* match account-item padding */
+  border-bottom: 1px solid #e5e7eb;    /* same divider */
+  background: #fff;                    /* same background */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Left group */
@@ -54,6 +62,7 @@
 .account-name {
   font-weight: 600;
   margin: 0;
+  color: #111827;
 }
 
 .account-meta {
@@ -66,13 +75,31 @@
 /* Middle column (designation only) */
 .account-section {
   font-size: 0.92rem;
-  color: #6b7280;
+  color: #374151;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   align-self: center;
 }
 
+/* Inline edit mode */
+.account-section select {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.9rem;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s ease;
+  min-width: 250px;
+}
+
+.account-section select:focus {
+  border-color: #203061;
+}
+
+/* Action buttons */
 .account-action button {
   padding: 6px 14px;
   border-radius: 6px;
@@ -88,6 +115,13 @@
 .edit-btn {
   border: 1.5px solid #203061;
   color: #203061;
+  background: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .inspect-btn:hover,
@@ -114,8 +148,9 @@
 
 /* Filter container */
 .account-filter {
-  margin-top: 12px;       /* spacing below tabs */
+  margin-top: 15px;       /* spacing below tabs */
   margin-bottom: 16px;    /* spacing before list */
+  margin-left: 20px;
   display: flex;
   justify-content: flex-start;
 }
@@ -137,4 +172,119 @@
 .account-filter select:hover,
 .account-filter select:focus {
   border-color: #203061;   /* just a thin accent border */
+}
+
+/* Designation specific styles */
+.designation-name {
+  font-weight: 600;
+  color: #111827;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.designation-section {
+  font-size: 0.9rem;
+  color: #4b5563;
+  background: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.designation-section span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.designation-action {
+  display: flex;
+  gap: 0.5rem;
+  justify-self: end;
+}
+
+.designation-action button {
+  margin-left: 0;
+  min-width: 60px;
+}
+
+/* Save/Cancel buttons for edit mode */
+.designation-action button:not(.edit-btn) {
+  border: 1.5px solid #28a745;
+  color: #28a745;
+  background: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 60px;
+}
+
+.designation-action button:not(.edit-btn):hover {
+  background: #28a745;
+  color: white;
+}
+
+.designation-action button:last-child:not(.edit-btn) {
+  border: 1.5px solid #6c757d;
+  color: #6c757d;
+}
+
+.designation-action button:last-child:not(.edit-btn):hover {
+  background: #6c757d;
+  color: white;
+}
+
+/* List spacing */
+.account-list {
+  margin-top: 16px;     /* space between filter and accounts */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .account-item {
+    margin: 0 10px;
+    padding: 16px 12px;
+    gap: 16px;
+  }
+  
+  .account-item.designation {
+    margin: 0 10px;
+  }
+  
+  .designation-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 12px;
+  }
+  
+  .designation-section select {
+    min-width: unset;
+    width: 100%;
+  }
+  
+  .account-filter {
+    margin-left: 10px;
+  }
+  
+  .designation-action {
+    justify-self: center;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Hover effects */
+.account-item:not(.designation):hover {
+  background: #f8f9fa;
+}
+
+.designation-row:hover {
+  background: #f8f9fa;
 }

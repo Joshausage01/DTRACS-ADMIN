@@ -7,98 +7,154 @@ const mockAccounts = {
   verification: [
     { id: 1, name: "Juan Dela Cruz", type: "School", school: "Binan Integrated HS" },
     { id: 2, name: "Maria Santos", type: "Focal" },
-    { id: 3, name: "Pedro Ramos", type: "School", school: "San Antonio HS" },
-    { id: 4, name: "Ana Cruz", type: "Focal" },
   ],
   termination: [
-    { id: 5, name: "Pedro Reyes", school: "Binan Integrated HS", type: "School" },
-    { id: 6, name: "Ana Cruz", school: "San Antonio HS", type: "Focal" },
+    { id: 3, name: "Pedro Reyes", school: "Binan Integrated HS", type: "School" },
   ],
   designation: [
-    { id: 7, name: "Isidra L. Galman", section: "School Management & Eval Section" },
-    { id: 8, name: "Edward R. Manuel", section: "Planning & Research Section" },
+    { id: 4, name: "Isidra L. Galman", section: "School Management & Evaluation Section" },
+    { id: 5, name: "Edward R. Manuel", section: "Planning & Research Section" },
   ],
 };
 
+// Allowed sections
+const designationOptions = [
+  "School Management & Evaluation Section",
+  "Planning & Research Section",
+  "Human Resource Development Section",
+  "Social Mobilization and Networking Section",
+  "Education Facilities Section",
+];
+
 const AccountControl = () => {
   const [activeTab, setActiveTab] = useState("verification");
-  const [ sortFilter, setSortFilter ] = useState("All");
+  const [sortFilter, setSortFilter] = useState("All");
+  const [accounts, setAccounts] = useState(mockAccounts);
+
+  const [editingId, setEditingId] = useState(null);
+  const [tempSection, setTempSection] = useState("");
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
-    setSortFilter("All")  // reset filter on tab change
+    setSortFilter("All");
+    setEditingId(null); // exit edit mode when switching tabs
   };
 
   const handleSortChange = (e) => {
     setSortFilter(e.target.value);
   };
 
-  // Pick account based on tab
-  let accounts = mockAccounts[activeTab] || [];
-
-  // Apply filter for verification & termination
-  if (activeTab === "verification" || activeTab === "termination") {
-    if (sortFilter !== "All") {
-      accounts = accounts.filter((acc) => acc.type === sortFilter);
-    }
+  // Filter accounts per tab
+  let currentAccounts = accounts[activeTab] || [];
+  if (activeTab !== "designation" && sortFilter !== "All") {
+    currentAccounts = currentAccounts.filter((acc) => acc.type === sortFilter);
   }
+
+  // Save designation change
+  const saveSection = (id) => {
+    setAccounts((prev) => ({
+      ...prev,
+      designation: prev.designation.map((acc) =>
+        acc.id === id ? { ...acc, section: tempSection } : acc
+      ),
+    }));
+    setEditingId(null);
+  };
 
   return (
     <div className="account-control">
-      {/* Tabs */}
       <AccountTabs onTabChange={handleTabChange} />
 
-      {/* Filter only for verification & termination */}
       {(activeTab === "verification" || activeTab === "termination") && (
         <div className="account-filter">
           <select value={sortFilter} onChange={handleSortChange}>
             <option value="All">All Accounts</option>
             <option value="School">School</option>
-            <option value="Focal">Focals</option>
+            <option value="Focal">Focal</option>
           </select>
         </div>
       )}
 
-      {/* Account list */}
-      <div className="account-list">
-        {accounts.map((acc) => (
-          <div key={acc.id} className={`account-item ${activeTab}`}>
-            {/* Left column: avatar + name (+ meta for non-designation) */}
+    <div className="account-list">
+      {currentAccounts.map((acc) => (
+        <div key={acc.id} className={`account-item ${activeTab}`}>
+          {(activeTab === "verification" || activeTab === "termination") && (
             <div className="account-info">
               <div className="account-avatar">👤</div>
               <div className="account-content">
                 <div className="account-name">{acc.name}</div>
-
-                {/* Only show meta under the name for verification/termination */}
-                {(activeTab === "verification" || activeTab === "termination") && (
-                  <div className="account-meta">
-                    {acc.type === "School" ? acc.school : "Focal"}
-                  </div>
-                )}
+                <div className="account-meta">
+                  {acc.type === "School" ? acc.school : "Focal"}
+                </div>
               </div>
             </div>
+          )}
 
-            {/* Middle column: section (designation only) */}
+            {/* Designation Tab */}
             {activeTab === "designation" && (
-              <div className="account-section">{acc.section}</div>
-            )}
+              <div className="designation-row">
+                {/* Avatar + Name */}
+                <div className="account-info">
+                  <div className="account-avatar">👤</div>
+                  <div className="account-content">
+                    <div className="designation-name">{acc.name}</div>
+                  </div>
+                </div>
 
-            {/* Right column: action button */}
-            <div className="account-action">
-              {activeTab === "verification" && (
+                {/* Section */}
+                <div className="designation-section">
+                  {editingId === acc.id ? (
+                    <select
+                      value={tempSection}
+                      onChange={(e) => setTempSection(e.target.value)}
+                    >
+                      {designationOptions.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <span>{acc.section}</span>
+                  )}
+                </div>
+
+                {/* Actions */}
+                <div className="designation-action">
+                  {editingId === acc.id ? (
+                    <>
+                      <button onClick={() => saveSection(acc.id)}>Save</button>
+                      <button onClick={() => setEditingId(null)}>Cancel</button>
+                    </>
+                  ) : (
+                    <button
+                      className="edit-btn"
+                      onClick={() => {
+                        setEditingId(acc.id);
+                        setTempSection(acc.section);
+                      }}
+                    >
+                      Edit
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
+            
+            {/* Buttons */}
+            {activeTab === "verification" && (
+              <div className="account-action">
                 <button className="inspect-btn">Inspect</button>
-              )}
-              {activeTab === "termination" && (
-                <button className="delete-btn">Delete Account</button>
-              )}
-              {activeTab === "designation" && (
-                <button className="edit-btn">Edit</button>
-              )}
-            </div>
+              </div>
+            )}
+            {activeTab === "termination" && (
+              <div className="account-action">
+                <button className="delete-btn">Delete</button>
+              </div>
+            )}
           </div>
         ))}
       </div>
-
     </div>
   );
 };
