@@ -18,7 +18,7 @@
   grid-template-columns: 2fr 3fr auto; /* name | section | button */
   align-items: center;
   gap: 16px;
-  padding: 12px 16px; /* Keep padding consistent */
+  padding: 0 16px; /* Keep padding consistent */
   border-bottom: 1px solid #e5e7eb;
   background: #fff;
   min-height: 60px; /* ADD THIS - crucial for consistent height */

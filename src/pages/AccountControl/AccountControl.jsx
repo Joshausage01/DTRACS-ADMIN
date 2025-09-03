@@ -1,9 +1,14 @@
 // src/pages/AccountControl/AccountControl.jsx
 import React, { useState } from "react";
+import "./AccountControl.css";
+
+// Components
 import AccountTabs from "../../components/AccountControlComponents/AccountTabs/AccountTabs";
 import VerificationModal from "../../components/AccountControlComponents/AccountModals/VerifyAccount/VerificationModal";
 import ConfirmDelete from "../../components/AccountControlComponents/AccountModals/TerminateAccount/ConfirmDelete";
-import "./AccountControl.css";
+
+// Utils - Import the icon generator functions
+import { getInitials, stringToColor } from "../../utils/iconGenerator";
 
 // Toastify
 import { toast, ToastContainer } from "react-toastify";
@@ -48,7 +53,7 @@ const initialMockAccounts = {
     },
   ],
   termination: [
-    { id: 5, name: "Pedro Reyes", school: "Binan Integrated HS", type: "School" },
+    { id: 5, name: "Tedro Reyes", school: "Binan Integrated HS", type: "School" },
     { id: 6, name: "Ana Cruz", school: "San Antonio HS", type: "Focal" },
   ],
   designation: [
@@ -75,27 +80,6 @@ const sections = [
   "School Health",
   "Youth Formation",
 ];
-
-// ✅ Get first initial
-const getInitials = (name) => {
-  if (!name) return "??";
-  const parts = name.trim().split(" ").filter(part => part.length > 0);
-  const first = parts[0]?.charAt(0) || "";
-  const last = parts[parts.length - 1]?.charAt(0) || "";
-  return (first + last).toUpperCase();
-};
-
-// ✅ Generate consistent color from name (looks random, but stable)
-const stringToColor = (str) => {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  const hue = hash % 360;
-  const saturation = 60 + (hash % 20);
-  const lightness = 50 + (hash % 10);
-  return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-};
 
 const AccountControl = () => {
   const [activeTab, setActiveTab] = useState("verification");
