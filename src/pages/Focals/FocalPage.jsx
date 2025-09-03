@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
-import TaskTabs from "../../components/TaskPageComponents/TaskTabs";
+import TaskTabs from "../../components/TaskPageComponents/TaskTabs/TaskTabs";
 import TaskList from "../../components/TaskPageComponents/TaskLists";
 import { sectionData } from "../../data/focals"; // import your merged data
 import "./FocalPage.css";

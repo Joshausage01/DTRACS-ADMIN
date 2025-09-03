@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./TaskTabs.css";
 
 const TaskTabs = ({ onTabChange, onSortChange, taskCounts = {} }) => {
+
   const [activeTab, setActiveTab] = useState("ongoing");
   const [sortValue, setSortValue] = useState("all");
 
