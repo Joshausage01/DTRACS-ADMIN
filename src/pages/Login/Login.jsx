@@ -26,6 +26,7 @@ const Login = () => {
       // Step 1: Login using the /admin/login endpoint
       const loginResponse = await fetch(`${config.API_BASE_URL}/admin/login`, {
         method: "POST",
+        credentials: "include", // Include cookies if any
         headers: {
           "Content-Type": "application/json",
         },
