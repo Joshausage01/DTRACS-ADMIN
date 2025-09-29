@@ -49,7 +49,7 @@ const Login = () => {
       }
 
       // ✅ Step 2: Fetch full user profile using the NEW /admin/account/info endpoint
-      const profileResponse = await fetch(`${config.API_BASE_URL}/admin/account/info`, {
+      const profileResponse = await fetch(`${config.API_BASE_URL}/admin/account/info/`, {
         method: "GET",
         credentials: "include", // Include cookies if any
       });
