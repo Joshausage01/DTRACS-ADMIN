@@ -23,8 +23,8 @@ const Login = () => {
     setError("");
 
     try {
-      // Step 1: Login to get access token
-      const loginResponse = await fetch(`${config.API_BASE_URL}/auth/login`, {
+      // Step 1: Login using the /admin/login endpoint
+      const loginResponse = await fetch(`${config.API_BASE_URL}/admin/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,12 +47,10 @@ const Login = () => {
         throw new Error("No access token received");
       }
 
-      // ✅ Step 2: Fetch full user profile using NEW unified endpoint
-      const profileResponse = await fetch(`${config.API_BASE_URL}/auth/get/current/user`, {
+      // ✅ Step 2: Fetch full user profile using the NEW /admin/account/info endpoint
+      const profileResponse = await fetch(`${config.API_BASE_URL}/admin/account/info`, {
         method: "GET",
-        headers: {
-          "Authorization": `Bearer ${access_token}`,
-        },
+        credentials: "include", // Include cookies if any
       });
 
       if (!profileResponse.ok) {
@@ -60,13 +58,13 @@ const Login = () => {
       }
 
       const fullUserData = await profileResponse.json();
-      console.log("Full user data from backend:", fullUserData); // 👈 Add this
+      console.log("Full user data from backend:", fullUserData);
 
       // Store full user data
       sessionStorage.setItem("currentUser", JSON.stringify(fullUserData));
 
-      // ✅ Redirect to admin section (adjust path as needed)
-      navigate("/sections"); // or "/sections" if that's your admin home
+      // ✅ Redirect to admin section
+      navigate("/sections");
 
     } catch (err) {
       setError(err.message || "Unable to connect to server. Please try again later.");
