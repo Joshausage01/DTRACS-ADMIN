@@ -157,23 +157,6 @@ const pulseClass = getPulseClass();
         
         <div className="task-title-container">
           <h1 className="task-title">{task?.title || "Untitled Task"}</h1>
-          
-          <div className="task-actions-container">
-            
-            {showOptionsMenu && (
-              <div ref={optionsMenuRef} className="options-dropdown">
-                <button onClick={handleEditTask} className="dropdown-item">
-                  Edit Task
-                </button>
-                <button onClick={handleDeleteTask} className="dropdown-item delete">
-                  Delete Task
-                </button>
-                <button onClick={handleCopyLink} className="dropdown-item">
-                  Copy Link
-                </button>
-              </div>
-            )}
-          </div>
         </div>
       </div>
 
