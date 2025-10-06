@@ -7,6 +7,7 @@ import logo from "../../assets/images/logo-w-text.png";
 import { FaUser, FaSignOutAlt } from "react-icons/fa";
 import { IoChevronDownCircle } from "react-icons/io5";
 import { generateAvatar } from "../../utils/iconGenerator";
+import config from "../../config";
 
 const Header = ({ toggleSidebar }) => {
   const navigate = useNavigate();
@@ -117,38 +118,27 @@ const Header = ({ toggleSidebar }) => {
 
   const handleSignOut = async () => {
     try {
-      const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-      const accessToken = currentUser?.access_token;
+      // No need to extract token from sessionStorage — it's in a cookie
+      const response = await fetch(`${config.API_BASE_URL}/auth/logout`, {
+        method: "POST",
+        credentials: "include", // ✅ This ensures cookies are sent
+      });
 
-      if (!accessToken) {
-        console.warn("No access token found. Clearing session anyway.");
-      } else {
-        // Call the logout endpoint
-        const response = await fetch("/api/auth/logout", {
-          method: "POST",
-          headers: {
-            "Authorization": `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-          },
-          credentials: "include", // Important: sends cookies with the request
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          console.error("Logout failed:", errorData.detail || response.statusText);
-          // Even if backend fails, we still clear client-side session for security
-        }
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Logout failed:", errorData.detail || response.statusText);
+        // Still proceed to clear client-side state for security
       }
     } catch (err) {
       console.error("Error during logout request:", err);
       // Proceed to clear session anyway
     } finally {
-      // ✅ Clear client-side session
+      // ✅ Clear client-side user data
       sessionStorage.removeItem("currentUser");
       setCurrentUser(null);
       setAvatarProps(null);
 
-      // ✅ Hard redirect to login (prevents back navigation)
+      // ✅ Hard redirect to login
       window.location.replace("/login");
     }
   };
@@ -165,9 +155,6 @@ const Header = ({ toggleSidebar }) => {
               <img src={logo} className="logo-w-text" alt="Logo" />
             </div>
           </div>
-        </div>
-        <div className="header-right">
-          <span className="profile-placeholder">Guest</span>
         </div>
       </header>
     );
